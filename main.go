@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
-	"log"
 )
 
 func main() {
 
-	log.Println("hiii")
-	fmt.Println("kkk")
+	arr := []int{1, 5, 4, 3, 2}
+
+	arr = bubbleSort(arr)
+
+	fmt.Println(arr)
+
 }
