@@ -29,3 +29,21 @@ func insertionSort(arr []int) []int {
 	return arr
 
 }
+
+func quickSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
+	}
+	pivot := arr[len(arr)/2]
+	left, right := []int{}, []int{}
+	for _, element := range arr {
+		if element < pivot {
+			left = append(left, element)
+		} else if element > pivot {
+			right = append(right, element)
+		}
+	}
+	left = quickSort(left)
+	right = quickSort(right)
+	return append(append(left, pivot), right...)
+}

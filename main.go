@@ -10,7 +10,7 @@ func main() {
 
 	// arr = bubbleSort(arr)
 
-	arr = insertionSort(arr)
+	arr = quickSort(arr)
 
 	str := reverseString("hello darling")
 	fmt.Println(str)
