@@ -13,7 +13,9 @@ func main() {
 	arr = quickSort(arr)
 
 	str := reverseString("hello darling")
+
+	anagon := isAnagram("hello", "lloeh")
 	fmt.Println(str)
-	fmt.Println(arr)
+	fmt.Println(anagon)
 
 }

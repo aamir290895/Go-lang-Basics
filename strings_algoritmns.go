@@ -1,21 +1,17 @@
 package main
 
-import "log"
+import (
+	"log"
+	"sort"
+	"strings"
+)
 
 func reverseString(s string) string {
 	// Convert the string to a rune slice
 	runes := []rune(s)
 
 	log.Println(runes[1])
-	log.Println(runes[2])
-	log.Println(runes[3])
-	log.Println(runes[4])
-	log.Println(runes[5])
 
-	log.Println(string(runes[1]))
-	log.Println(string(runes[2]))
-	log.Println(string(runes[3]))
-	log.Println(string(runes[4]))
 	log.Println(string(runes[5]))
 
 	// Reverse the rune slice
@@ -27,4 +23,28 @@ func reverseString(s string) string {
 	reversedString := string(runes)
 
 	return reversedString
+}
+
+func isAnagram(str1, str2 string) bool {
+	// Remove spaces and convert both strings to lowercase for case-insensitive comparison
+	str1 = strings.ReplaceAll(str1, " ", "")
+	str2 = strings.ReplaceAll(str2, " ", "")
+	str1 = strings.ToLower(str1)
+	str2 = strings.ToLower(str2)
+
+	// Check if the lengths of the strings are different
+	if len(str1) != len(str2) {
+		return false
+	}
+
+	// Convert the strings to slices of characters
+	s1 := strings.Split(str1, "")
+	s2 := strings.Split(str2, "")
+
+	// Sort both slices
+	sort.Strings(s1)
+	sort.Strings(s2)
+
+	// Compare the sorted slices
+	return strings.Join(s1, "") == strings.Join(s2, "")
 }

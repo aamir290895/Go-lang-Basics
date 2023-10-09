@@ -25,6 +25,8 @@ package main
 // Definition: Heap sort is an in-place, efficient, and comparison-based sorting algorithm. It builds a binary heap from the input array and repeatedly extracts the maximum element (for ascending order) and places it at the end of the array.
 // Key Difference: It has a time complexity of O(n log n) and doesn't require additional memory for sorting, making it suitable for large datasets. It is not stable.
 
+// Quick Sort is a highly efficient and widely used comparison-based sorting algorithm. It follows a divide-and-conquer strategy to sort an array or list of elements.
+
 func bubbleSort(arr []int) []int {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr)-1; j++ {
