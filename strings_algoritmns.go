@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"sort"
 	"strings"
@@ -47,4 +48,21 @@ func isAnagram(str1, str2 string) bool {
 
 	// Compare the sorted slices
 	return strings.Join(s1, "") == strings.Join(s2, "")
+}
+
+func occouranceOfString(str string, subStr string) int {
+
+	count := 0
+
+	for i := 0; i < len(str)-2; i++ {
+
+		k := str[i : i+3]
+		fmt.Println(k)
+
+		if k == subStr {
+			count++
+		}
+	}
+
+	return count
 }
