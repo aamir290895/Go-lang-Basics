@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+type Student struct {
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+}
+
 func pointers() {
 
 	a := 10
@@ -15,6 +20,17 @@ func pointers() {
 
 	fmt.Println(*b) // *b represents the value of 0xc000016088 this memory location
 
+	var st []Student
+
+	st = append(st, Student{Name: "aamir", Age: 28}, Student{Name: "Aakib", Age: 21})
+
+	for i := range st {
+		changeName(&st[i])
+
+	}
+
+	fmt.Println(st)
+
 }
 
 func increment(a *int) {
@@ -25,4 +41,9 @@ func increment(a *int) {
 	}
 
 	wg.Done()
+}
+
+func changeName(st *Student) {
+
+	st.Name = "Aamir Khan"
 }
