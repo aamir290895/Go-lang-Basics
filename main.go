@@ -1,6 +1,9 @@
 package main
 
+import "fmt"
+
 func main() {
+	fmt.Println(message)
 
 	// arr := []int{1, 5, 4, 3, 2}
 
@@ -39,4 +42,5 @@ func main() {
 	// fmt.Println("Main function")
 
 	pointers()
+
 }
