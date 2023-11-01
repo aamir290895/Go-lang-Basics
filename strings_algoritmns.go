@@ -66,3 +66,20 @@ func occouranceOfString(str string, subStr string) int {
 
 	return count
 }
+
+func countVowelsInString(str string) map[string]int {
+
+	m := make(map[string]int)
+
+	vowels := "aeiouAEIOU"
+
+	for _, v := range str {
+		if strings.ContainsRune(vowels, v) {
+			m[string(v)]++
+		}
+
+	}
+
+	return m
+
+}
