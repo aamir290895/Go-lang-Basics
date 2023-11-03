@@ -36,3 +36,18 @@ func removeDuplicatesAnotherWay(nums []int) []int {
 
 	return arr2
 }
+
+func removeDuplicateFromString(str string) string {
+	m := make(map[rune]bool)
+
+	str2 := []rune{}
+
+	for _, v := range str {
+		if !m[v] {
+			str2 = append(str2, v)
+			m[v] = true
+		}
+	}
+
+	return string(str2)
+}

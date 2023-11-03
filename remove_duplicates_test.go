@@ -22,3 +22,12 @@ func TestRemoveDuplicatesAnotherWay(t *testing.T) {
 	fmt.Println(arr)
 
 }
+
+func TestRemoveDuplicateFromString(t *testing.T) {
+
+	str := "hello world"
+
+	str = removeDuplicateFromString(str)
+
+	fmt.Println(str)
+}
