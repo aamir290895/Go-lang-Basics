@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func removeDuplicates(nums []int) []int {
 	if len(nums) <= 1 {
@@ -50,4 +53,20 @@ func removeDuplicateFromString(str string) string {
 	}
 
 	return string(str2)
+
+}
+
+func removeDuplicatesFromIntArray(arr []int) []int {
+	m := make(map[int]bool)
+
+	new := []int{}
+	for _, v := range arr {
+		if !m[v] {
+			new = append(new, v)
+			m[v] = true
+		}
+	}
+
+	sort.Ints(new)
+	return new
 }
