@@ -21,26 +21,27 @@ func main() {
 
 	// Without the time.Sleep call, the main program may exit before the Goroutine (sayHello()) has a chance to execute.
 
-	// ch := make(chan string)
-	// wg.Add(2)
+	ch := make(chan string)
 
-	// fmt.Println("Main function starts")
+	fmt.Println("Main function starts")
+	wg.Add(2)
 
-	// go sayHello(ch)
+	go ping(ch, &wg)
 
-	// go receiveHello(ch)
+	go pong(ch, &wg)
 
-	// select {
-	// case val := <-ch:
-	// 	fmt.Println(val)
-	// default:
-	// 	fmt.Println("no signal")
-	// }
+	wg.Wait()
+	select {
+	case val := <-ch:
+		fmt.Println(val)
+	default:
+		fmt.Println("no signal")
+	}
 
 	// wg.Wait()
 	// //time.Sleep(time.Second)
 	// fmt.Println("Main function")
 
-	pointers()
+	//pointers()
 
 }
