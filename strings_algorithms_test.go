@@ -7,7 +7,7 @@ import (
 
 func TestReverseString(t *testing.T) {
 
-	str := "abcdef"
+	str := "abcdeyf"
 	str = reverseString(str)
 
 	if str == "fedcba" {
@@ -16,6 +16,12 @@ func TestReverseString(t *testing.T) {
 		t.Errorf("expected %s", "fedcab")
 
 	}
+
+	if str != "ab" {
+		t.Fail()
+	}
+
+	t.Fatal(str)
 
 }
 

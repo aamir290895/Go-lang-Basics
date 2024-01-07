@@ -32,6 +32,7 @@ func (q *Queue) IsEmpty() bool {
 }
 
 func queuesTest() {
+	
 	queue := Queue{}
 
 	queue.Enqueue(1)
