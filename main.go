@@ -45,4 +45,5 @@ func main() {
 	//pointers()
 
 	stackTest()
+	testInheritance()
 }
