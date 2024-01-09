@@ -48,3 +48,10 @@ func TestHcf(t *testing.T) {
 	}
 
 }
+
+func TestGeneratePascalsTriangle(t *testing.T) {
+
+	numRows := 5
+	triangle := generatePascalsTriangle(numRows)
+	t.Log(triangle)
+}

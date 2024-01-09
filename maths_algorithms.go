@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 func isPrime(n int) bool {
 
@@ -39,4 +42,21 @@ func hcf(a, b int) int {
 
 func lcm(a, b int) int {
 	return (a * b) / hcf(a, b)
+}
+
+func generatePascalsTriangle(numRows int) [][]int {
+	result := make([][]int, numRows)
+
+	for i := 0; i < numRows; i++ {
+		result[i] = make([]int, i+1)
+		result[i][0] = 1
+		result[i][i] = 1
+
+		for j := 1; j < i; j++ {
+			result[i][j] = result[i-1][j-1] + result[i-1][j]
+		}
+	}
+
+	fmt.Println(result)
+	return result
 }
