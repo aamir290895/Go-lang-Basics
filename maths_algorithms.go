@@ -29,3 +29,14 @@ func isPrime(n int) bool {
 	return true
 
 }
+
+func hcf(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
+}
+
+func lcm(a, b int) int {
+	return (a * b) / hcf(a, b)
+}
