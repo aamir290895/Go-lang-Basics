@@ -18,6 +18,8 @@ func pointers() {
 
 	b := &a
 
+	//var b *int = &a
+
 	fmt.Println(*b) // *b represents the value of 0xc000016088 this memory location
 
 	var st []Student
