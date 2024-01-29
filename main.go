@@ -1,50 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println(message)
 
-	// arr := []int{1, 5, 4, 3, 2}
+	ch := make(chan string)
 
-	// arr = bubbleSort(arr)
+	go ping(ch)
 
-	// arr = quickSort(arr)
+	go pong(ch)
 
-	// //str := reverseString("hello darling")
+	for {
+		select {
+		case val, ok := <-ch:
+			if ok {
+				fmt.Println(val)
 
-	// anagon := isAnagram("hello", "lloeh")
+			}
+		default:
+			fmt.Println("no signal")
+		}
+	}
 
-	// count := occouranceOfString("abcabcabcabc", "abc")
-	// fmt.Println(count)
-	// fmt.Println(anagon)
-
-	// Without the time.Sleep call, the main program may exit before the Goroutine (sayHello()) has a chance to execute.
-
-	// ch := make(chan string)
-
-	// fmt.Println("Main function starts")
-	// wg.Add(2)
-
-	// go ping(ch, &wg)
-
-	// go pong(ch, &wg)
-
-	// wg.Wait()
-	// select {
-	// case val := <-ch:
-	// 	fmt.Println(val)
-	// default:
-	// 	fmt.Println("no signal")
-	// }
-
-	// wg.Wait()
-	// //time.Sleep(time.Second)
-	// fmt.Println("Main function")
-
-	//pointers()
-
-	stackTest()
-	testInheritance()
-	testInterfaces()
 }

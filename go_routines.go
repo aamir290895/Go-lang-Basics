@@ -16,7 +16,7 @@ func sayHello(ch chan string) {
 		fmt.Println("Hello")
 		ch <- "hello chan"
 
-		time.Sleep(time.Millisecond * 10)
+		time.Sleep(time.Millisecond * 100)
 	}
 
 	close(ch)

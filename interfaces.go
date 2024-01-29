@@ -13,7 +13,7 @@ type Square struct {
 }
 
 // Area method for Square satisfying the Shape interface
-func (s Square) Area() float64 {
+func (s *Square) Area() float64 {
 	return s.Side * s.Side
 }
 
@@ -23,18 +23,20 @@ type Circle struct {
 }
 
 // Area method for Circle satisfying the Shape interface
-func (c Circle) Area() float64 {
+func (c *Circle) Area() float64 {
 	return 3.14 * c.Radius * c.Radius
 }
 
 func testInterfaces() {
 	// Create instances of Square and Circle
-	square := Square{Side: 5}
-	circle := Circle{Radius: 3}
+	var shape Shape
+	shape = &Square{Side: 5}
+	printArea(shape)
+
+	shape = &Circle{Radius: 3}
 
 	// Use the Shape interface to calculate areas
-	printArea(square)
-	printArea(circle)
+	printArea(shape)
 }
 
 // printArea is a function that accepts any type satisfying the Shape interface
