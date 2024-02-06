@@ -1,5 +1,7 @@
 package main
 
+import "math"
+
 func arrangeLowestNextToHighest(arr []int) []int {
 
 	// arr := []int {1,2,25,8,7}
@@ -48,4 +50,48 @@ func arrangeLowestNextToHighest(arr []int) []int {
 	arr = append(arr, temp...)
 
 	return arr
+}
+
+func findSecondLargest(arr []int) int {
+	h := math.MinInt
+
+	h2 := math.MinInt
+
+	for _, v := range arr {
+
+		if v > h {
+			h2 = h
+			h = v
+		} else if v > h2 && h2 != h {
+			h2 = v
+		}
+	}
+	return h2
+
+}
+func findSecondNonRepeatingCharacter(str string) string {
+	m := make(map[rune]int)
+
+	for _, v := range str {
+		m[v]++
+	}
+
+	var firstNonRepeating, secondNonRepeating rune
+
+	for _, v := range str {
+		if m[v] == 1 {
+			if firstNonRepeating == 0 {
+				firstNonRepeating = v
+			} else {
+				secondNonRepeating = v
+				break
+			}
+		}
+	}
+
+	if secondNonRepeating != 0 {
+		return string(secondNonRepeating)
+	}
+
+	return "" // Return an empty string if no second non-repeating character is found
 }
