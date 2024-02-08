@@ -26,6 +26,34 @@ func reverseString(s string) string {
 	return reversedString
 }
 
+func isAnagram2(s1, s2 string) bool {
+	l1 := []rune(s1)
+	l2 := []rune(s2)
+
+	if len(l1) != len(l2) {
+		return false
+	}
+
+	m := make(map[rune]bool)
+	for _, v := range s2 {
+		if strings.ContainsRune(s1, v) {
+			m[v] = true
+		} else {
+			m[v] = false
+		}
+	}
+
+	for key, val := range m {
+		fmt.Println(key, val)
+
+		if !val {
+			return false
+		}
+	}
+
+	return true
+}
+
 func isAnagram(str1, str2 string) bool {
 	// Remove spaces and convert both strings to lowercase for case-insensitive comparison
 	str1 = strings.ReplaceAll(str1, " ", "")
@@ -82,4 +110,60 @@ func countVowelsInString(str string) map[string]int {
 
 	return m
 
+}
+
+func strStr(haystack string, needle string) int {
+
+	//Input: haystack = "sadbutsad", needle = "sad"
+	//Output: 0
+	// Explanation: "sad" occurs at index 0 and 6.
+	//The first occurrence is at index 0, so we return 0.
+
+	s, s1 := len(haystack), len(needle)
+	for i := 0; i <= (s - s1); i++ {
+
+		if haystack[i:i+s1] == needle {
+			return i
+		}
+
+	}
+	return -1
+
+}
+
+func isIsomorphic(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+
+	mapping := make(map[byte]byte)
+	visited := make(map[byte]bool)
+
+	for i := 0; i < len(s); i++ {
+		if mapped, ok := mapping[s[i]]; ok {
+			if mapped != t[i] {
+				return false
+			}
+		} else {
+			if visited[t[i]] {
+				return false
+			}
+			mapping[s[i]] = t[i]
+			visited[t[i]] = true
+		}
+	}
+
+	return true
+}
+
+func repeatedSubstringPattern(s string) bool {
+	// Duplicate the original string to form a longer string
+	duplicated := s + s
+
+	// Remove the first and last characters to avoid an exact match
+	duplicated = duplicated[1 : len(duplicated)-1]
+
+	fmt.Println(duplicated)
+	// Check if the original string is present in the duplicated string
+	return strings.Contains(duplicated, s)
 }

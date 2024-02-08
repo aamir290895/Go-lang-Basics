@@ -52,6 +52,24 @@ func arrangeLowestNextToHighest(arr []int) []int {
 	return arr
 }
 
+func removeElement(nums []int, val int) int {
+
+	//Input: nums = [3,2,2,3], val = 3
+	//Output: 2, nums = [2,2,_,_]
+	//Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+	//It does not matter what you leave beyond the returned k (hence they are underscores).
+
+	i := 0
+	for _, v := range nums {
+
+		if v != val {
+			nums[i] = v
+			i++
+		}
+
+	}
+	return i
+}
 func findSecondLargest(arr []int) int {
 	h := math.MinInt
 
