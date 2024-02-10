@@ -1,27 +1,25 @@
 package main
 
-import (
-	"fmt"
-)
+import "go-lang-basics/labstack"
 
 func main() {
 
-	ch := make(chan string)
+	// ch := make(chan string)
 
-	go ping(ch)
+	// go ping(ch)
+	labstack.Setup()
+	// go pong(ch)
 
-	go pong(ch)
+	// for {
+	// 	select {
+	// 	case val, ok := <-ch:
+	// 		if ok {
+	// 			fmt.Println(val)
 
-	for {
-		select {
-		case val, ok := <-ch:
-			if ok {
-				fmt.Println(val)
-
-			}
-		default:
-			fmt.Println("no signal")
-		}
-	}
+	// 		}
+	// 	default:
+	// 		fmt.Println("no signal")
+	// 	}
+	// }
 
 }
