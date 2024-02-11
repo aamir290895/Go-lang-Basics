@@ -1,13 +1,16 @@
 package main
 
-import "go-lang-basics/labstack"
+import (
+	"go-lang-basics/ginframework"
+)
 
 func main() {
 
 	// ch := make(chan string)
 
 	// go ping(ch)
-	labstack.Setup()
+	//labstack.Setup()
+	ginframework.Setup()
 	// go pong(ch)
 
 	// for {
