@@ -167,3 +167,29 @@ func repeatedSubstringPattern(s string) bool {
 	// Check if the original string is present in the duplicated string
 	return strings.Contains(duplicated, s)
 }
+
+func groupAnagrams(strs []string) [][]string {
+	anagrams := make(map[string][]string)
+
+	for _, str := range strs {
+		// Convert the string to a sorted array of characters
+		sortedStr := sortString(str)
+
+		// Use the sorted array of characters as a key in the map
+		anagrams[sortedStr] = append(anagrams[sortedStr], str)
+	}
+
+	result := make([][]string, 0)
+	for _, group := range anagrams {
+		result = append(result, group)
+	}
+
+	return result
+}
+
+func sortString(s string) string {
+	// Convert the string to an array of characters, sort it, and then join back into a string
+	sortedChars := strings.Split(s, "")
+	sort.Strings(sortedChars)
+	return strings.Join(sortedChars, "")
+}
